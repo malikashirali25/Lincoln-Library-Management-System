@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use App\Http\Controllers\AdminController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [HomeController::class,'index']);
 
 Route::middleware([
     'auth:sanctum',
@@ -27,7 +26,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
-/*
-Admin Route
-*/
+
 Route::get('/home',[AdminController::class,'index']);
