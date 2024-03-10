@@ -18,11 +18,13 @@
     <script src="{{asset('admin/js/charts-home.js')}}"></script>
     <script src="{{asset('admin/js/front.js')}}"></script>
 
-<!-- Confirmation JavaScript code -->
+<!-- Confirmation JavaScript code for deletion -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
-    function confirmDelete(categoryId) {
-      ev.preventDefault();
-      var urlToRedirect = ev.currentTarget.getAttribute('href');
+    function confirmDelete(event) {
+      event.preventDefault();
+      var urlToRedirect = event.currentTarget.getAttribute('data-href');
         console.log(urlToRedirect);
         Swal.fire({
             title: 'Are you sure?',
@@ -34,7 +36,7 @@
             confirmButtonText: 'Yes, delete it!'
         }).then((result) => {
             if (result.isConfirmed) {
-                window.location.href = '/cat_delete/' + categoryId;
+                window.location.href = urlToRedirect;
             }
         });
     }

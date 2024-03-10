@@ -29,6 +29,14 @@
                 <x-input id="address" class="block mt-1 w-full" type="text" name="address" :value="old('address')" required autofocus autocomplete="name" />
             </div>
 
+            <div>
+                <x-label for="usertype" value="{{ __('User Type') }}" />
+                <select id="usertype" name="usertype" class="block mt-1 w-full" required autofocus>
+                    <option value="student">Student</option>
+                    <option value="faculty">Faculty</option>
+                </select>
+            </div>
+
             <div class="mt-4">
                 <x-label for="password" value="{{ __('Password') }}" />
                 <x-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />

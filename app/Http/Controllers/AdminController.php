@@ -19,7 +19,7 @@ class AdminController extends Controller
             {
                 return view ('admin.index');
             } 
-                else if($user_type == 'user')
+                else if($user_type == 'student' || $user_type == 'faculty')
                 {
                     return view ('home.index');
                 }
@@ -47,7 +47,7 @@ class AdminController extends Controller
     public function cat_delete($id)
     {
         $data = Category::findOrFail($id);
-        $data->delete();
+        $data -> delete();
         return redirect() -> back() ->with('message', 'Category deleted successfully');
     }
 }

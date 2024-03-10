@@ -44,12 +44,10 @@
                                     <li class="list-group-item d-flex justify-content-between align-items-center">
                                         {{ $data->cat_title }}
                                         <div class="btn-group" role="group" aria-label="Category Actions">
-                                            <a href="{{url('cat_update',$data -> id)}}"><button type="submit" class="btn btn-warning text-white mr-2">
+                                            <button type="submit" class="btn btn-warning text-white mr-2" data-href="{{url('cat_update',$data -> id)}}">
                                                 Update</button>
-                                            </a>
-                                            <a onclick="confirmDelete(event)" href="{{url('cat_delete',$data -> id)}}"><button type="submit" class="btn btn-danger">
+                                            <button type="submit"class="btn btn-danger" onclick="confirmDelete(event)" data-href="{{url('cat_delete',$data -> id)}}">
                                                 Delete</button>
-                                            </a>
                                         </div>
                                     </li>
                                         <!-- Update Modal -->
